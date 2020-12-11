@@ -1,0 +1,74 @@
+﻿@model Lab4.Models.ViewModels.CommunityViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Budget
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Communities)
+        {
+            string selectedRow = "";
+            if (item.ID == ViewData["CommunityID"]?.ToString())
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.CommunityMemberships != null)
+{
+    <h3>
+        Members of the Community:
+    </h3>
+    <table class="table">
+        <tr>
+            @if (Model.CommunityMemberships.Count() > 0)
+            {
+                <th> Name </th>
+            }
+            else
+            {
+                <th> No car record exist </th>
+            }
+        </tr>
+        @foreach (var item in Model.CommunityMemberships.Select(i => i.Student))
+        {
+            <tr>
+                <td>
+                    @item.FullName
+                </td>
+            </tr>
+        }
+    </table>
+}
