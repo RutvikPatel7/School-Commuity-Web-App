@@ -12,7 +12,7 @@ namespace Assignment1.Models
 
         [Required]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        [Display(Name = "Registration Number")]
+        [Display(Name = "Membership")]
         public string ID { get; set; }
 
         [Required]

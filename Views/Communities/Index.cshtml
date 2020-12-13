@@ -38,6 +38,7 @@
                 </td>
                 <td>
                     <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-action="Ads" asp-route-id="@item.ID">Ads</a> |
                     <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
@@ -59,7 +60,7 @@
             }
             else
             {
-                <th> No car record exist </th>
+                <th> No Student record exist </th>
             }
         </tr>
         @foreach (var item in Model.CommunityMemberships.Select(i => i.Student))

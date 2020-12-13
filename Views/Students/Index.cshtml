@@ -37,7 +37,9 @@
                 @Html.DisplayFor(modelItem => item.EnrollmentDate)
             </td>
             <td>
+                <a asp-action="Select" asp-route-id="@item.ID">Select</a> |
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="EditMemberships" asp-route-id="@item.ID">Edit Memberships</a> |
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
