@@ -19,7 +19,10 @@ namespace Assignment1.Data
         public DbSet<Advertisement> Advertisements { get; set; }
         public DbSet<StudentMembership> StudentMemberships { get; set; }
         public DbSet<CommunityMembership> CommunityMemberships { get; set; }
-       // public object CommunityMemberships { get; internal set; }
+       
+        public DbSet<AdsCommunity> AdvertisementCommunity { get; set; }
+
+        // public object CommunityMemberships { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,13 +31,14 @@ namespace Assignment1.Data
             modelBuilder.Entity<CommunityMembership>().ToTable("CommunityMembership");
             modelBuilder.Entity<StudentMembership>().ToTable("StudentMembership");
             modelBuilder.Entity<Advertisement>().ToTable("Advertisement");
+            modelBuilder.Entity<AdsCommunity>().ToTable("AdvertisementCommunity");
 
             modelBuilder.Entity<CommunityMembership>()
                 .HasKey(c => new { c.StudentID, c.CommunityID });
 
-            modelBuilder.Entity<StudentMembership>()
-               .HasKey(c => new { c.StudentID, c.CommunityID });
-
+       
+            
+           
         }
     }
 }

@@ -7,33 +7,58 @@
 <h4>Student</h4>
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="EditMemberships">
+    
+    <form asp-action="EditMemberships">
 
-            <dl class="row">
 
-                @foreach (var item in Model.Communities){
+        <table class="row">
+           
+                <tr>
+                    <th>
+                        Full Name &nbsp;
+                    </th>
+                    <td>
+                        @Model.Students.First().FullName
+                    </td>
                     
+                </tr>
+               
+        </table>
+           
+        <hr />
+
+            <table class="row">
+
+                @foreach (var item in Model.Communities)
+                {
+
                     bool addCom = Model.CommunityMemberships.Where(i => i.CommunityID == item.ID).Count() > 0;
 
                     if (!addCom)
                     {
-                        @item.Title <a asp-action="AddMemberships" asp-route-studentId="@Model.Students.First().ID" asp-route-communityId="@item.ID">Register</a>
+                        <tr>
+                            <td>@item.Title </td>
+                            <td> <a asp-action="AddMemberships" asp-route-studentId="@Model.Students.First().ID" asp-route-communityId="@item.ID">&nbsp;Register</a></td>
+                        </tr>
                     }
 
                     else
                     {
-                        @item.Title  <a asp-action="RemoveMemberships" asp-route-studentId="@Model.Students.First().ID" asp-route-communityId="@item.ID">Unregister</a>
+                        <tr>
+                            <td>
+                                @item.Title
+                            </td>
+                            <td>
+                                <a asp-action="RemoveMemberships" asp-route-studentId="@Model.Students.First().ID" asp-route-communityId="@item.ID">&nbsp;Unregister</a>
+                            </td>
+                        </tr>
                     }
 
-                 }
+                }
 
-            </dl>
-        </form>
-    </div>
-</div>
-<hr />
+            </table>
+    </form>
+
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
