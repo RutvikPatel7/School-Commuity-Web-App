@@ -28,7 +28,7 @@ namespace Assignment1.Models
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
 
-        [Display(Name = "Name")]
+        [Display(Name = "Full Name")]
         public string FullName
         {
             get
@@ -38,6 +38,7 @@ namespace Assignment1.Models
         }
 
         public ICollection<CommunityMembership> CommunityMemberships { get; set; }
+        public ICollection<StudentMembership> StudentMemberships { get; set; }
 
     }
 }

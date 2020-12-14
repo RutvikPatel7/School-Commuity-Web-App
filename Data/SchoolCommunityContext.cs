@@ -16,7 +16,8 @@ namespace Assignment1.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Community> Communities { get; set; }
-
+        public DbSet<Advertisement> Advertisements { get; set; }
+        public DbSet<StudentMembership> StudentMemberships { get; set; }
         public DbSet<CommunityMembership> CommunityMemberships { get; set; }
        // public object CommunityMemberships { get; internal set; }
 
@@ -25,9 +26,14 @@ namespace Assignment1.Data
             modelBuilder.Entity<Student>().ToTable("Student");
             modelBuilder.Entity<Community>().ToTable("Community");
             modelBuilder.Entity<CommunityMembership>().ToTable("CommunityMembership");
+            modelBuilder.Entity<StudentMembership>().ToTable("StudentMembership");
+            modelBuilder.Entity<Advertisement>().ToTable("Advertisement");
 
             modelBuilder.Entity<CommunityMembership>()
                 .HasKey(c => new { c.StudentID, c.CommunityID });
+
+            modelBuilder.Entity<StudentMembership>()
+               .HasKey(c => new { c.StudentID, c.CommunityID });
 
         }
     }
