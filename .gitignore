@@ -11,6 +11,8 @@ appsettings
 
 Assignment1.csproj
 
+Assignment1.csproj.user
+
 Properties
 
 obj
@@ -19,4 +21,3 @@ bin
 
 .vs
 
-Assignment1.csproj.user
