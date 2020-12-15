@@ -10,5 +10,7 @@ namespace Assignment1.Models.ViewModels
         public IEnumerable<Student> Students { get; set; }
         public IEnumerable<Community> Communities { get; set; }
         public IEnumerable<CommunityMembership> CommunityMemberships { get; set; }
+
+        public bool AdvertisementsExist { get; set; }
     }
 }

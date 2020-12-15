@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment1.Models
 {
-    public class Advertisement 
+    public class Advertisement
     {
-        public int AdvertisementId
+        public int Id
         {
             get; set;
         }

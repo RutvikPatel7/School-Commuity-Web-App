@@ -147,6 +147,8 @@ namespace Assignment1.Controllers
                 return NotFound();
             }
 
+            ViewBag.advertisementsExist = _context.AdvertisementCommunity.Where(m => m.CommunityID == id).Count() != 0;
+
             return View(community);
         }
 

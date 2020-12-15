@@ -1,18 +1,25 @@
-﻿@model IEnumerable<Assignment1.Models.Advertisement>
+﻿@model Assignment1.Models.ViewModels.AdsViewModel
 
 @{
     ViewData["Title"] = "Index";
 }
+<style>
 
-<h1>Show ads for community Alpha</h1>
+
+    h1 {
+        font-family: "Times New Roman";
+        letter-spacing: 5px;
+    }
+</style>
+<h1>Show ads for community @Model.Community.Title</h1>
 
 <p>
-    <a asp-action="Create">Upload New</a>
+    <a asp-action="Create" asp-route-id="@Model.Community.ID">Upload New</a>
 </p>
 <p>
     <a asp-controller="Communities" asp-action="Index">Back to List</a>
 </p>
-@if (Model.Count() == 0)
+@if (Model.Advertisements.Count() == 0)
 {
     <p>There are no files to display.</p>
 }
@@ -22,7 +29,7 @@ else
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.FileName)
+                    File name
                 </th>
                 <th>
                     Image
@@ -31,17 +38,17 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Advertisements)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FileName)
+                        File Name
                     </td>
                     <td>
                         <img src="@item.Url" style="max-width: 400px;" />
                     </td>
                     <td>
-                        <a asp-action="Delete" asp-route-id="@item.AdvertisementId">Delete</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
                 </tr>
             }

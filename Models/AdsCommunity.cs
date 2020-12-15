@@ -9,8 +9,12 @@ namespace Assignment1.Models
     public class AdsCommunity 
     {
         public int ID { get; set; }
-        
-        public string AdsCommunityID { get; set; }
+
+        public int AdvertisementID { get; set; }
+
+        public Advertisement Advertisement { get; set; }
+
+        public string CommunityID { get; set; }
 
         public Community Community { get; set; }
     }

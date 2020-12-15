@@ -1,8 +1,16 @@
-﻿
+﻿@model Assignment1.Models.Community
+
 @{
     ViewData["Title"] = "Create";
 }
+<style>
 
+
+    h1 {
+        font-family: "Times New Roman";
+        letter-spacing: 5px;
+    }
+</style>
 <h1>Upload</h1>
 
 <h4>Upload a Picture</h4>
@@ -12,7 +20,8 @@
         <form asp-action="Upload" enctype="multipart/form-data">
             <div class="form-group">
                 <div class="btn btn-sm float-left">
-                    <input name="files" type="file">
+                    <input name="CommunityId" type="hidden" value="@Model.ID">
+                    <input name="file" type="file">
                 </div>
             </div>
 
@@ -24,7 +33,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-route-id="@Model.ID">Back to List</a>
 </div>
 
 @section Scripts {

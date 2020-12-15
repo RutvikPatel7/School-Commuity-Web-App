@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment1.Models.ViewModels
 {
-    public class AdsViewModel 
+    public class AdsViewModel
     {
         public Community Community { get; set; }
         public IEnumerable<Advertisement> Advertisements { get; set; }
